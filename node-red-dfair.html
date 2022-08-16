@@ -1,25 +1,31 @@
 <script type="text/javascript">
-    RED.nodes.registerType('DFAir',{
-        category: 'config',
-    defaults: {
-      name: {
-        value: 'DFAir ?',
-        required: false
-      },
-      ip: {
-        value: '',
-        required: true
-      },
-      serialno: {
-        value: 'serialno ?',
-        required: false
-      }
-    }
+    RED.nodes.registerType('dfair', {
+        category: 'function',
+        defaults: {
+            name: {
+                value: 'DFAir ?',
+                required: false
+            },
+            ip: {
+                value: '',
+                required: false
+            },
+            serialno: {
+                value: 'serialno ?',
+                required: false
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "random",
+        label: function () {    // sets the default label contents
+            return this.name || "DFAir ?";
+        },
     });
 </script>
 
 
-<script type="text/x-red" data-template-name="DFAir">
+<script type="text/x-red" data-template-name="dfair">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -33,3 +39,13 @@
         <input type="text" id="node-input-serialno" placeholder="serialno">
     </div>
 </script>
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="rpi-ds18b20">
+    <p>Driver for the Danfoss Air range of ventilation systems.
+    Just call the input (using a timer) and configure the ip.
+
+    It is using a node.js project inside for all the IO - this is just a front for the hardware.
+
+    At some point in time I will add a "probe" node and then use the serial numbers to pick the right one (and perhaps handle multiple Danfoss Air units on same LAN segment)
+ </script>
