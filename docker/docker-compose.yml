@@ -1,0 +1,10 @@
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: node-red
+    environment:
+      - TZ=Europe/Copenhagen
+    ports:
+      - "1880:1880"
+    volumes:
+      - c:\temp\nodereddata:/data
