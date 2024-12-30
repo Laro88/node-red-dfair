@@ -1,13 +1,13 @@
 {
   "name": "@laro88/node-red-contrib-dfair",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Danfoss Air driver for node-red",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Laro88/node-red-dfair.git"
   },
   "keywords": [
-    "not-node-red"
+    "node-red"
   ],
   "author": "Laro88",
   "license": "MIT",
