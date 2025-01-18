@@ -1,6 +1,6 @@
 <script type="text/javascript">
     RED.nodes.registerType('dfair', {
-        category: 'function',
+        category: 'IO',
         defaults: {
             name: {
                 value: 'DFAir ?',
@@ -42,10 +42,13 @@
 
 <!-- Next, some simple help text is provided for the node.                   -->
 <script type="text/html" data-help-name="dfair">
-    <p>Driver for the Danfoss Air range of ventilation systems.
+    <p>Driver for the Danfoss Air range of ventilation systems.</p>
+
+    <p>
     Just call the input (using a timer) and configure the ip number, make it static in your dhcp so you don't use functionality later in life
 
     It is using a node.js project inside for all the IO - this is just a front for that dfair.
 
     At some point in time I will add a "probe" node and then use the serial numbers to pick the right one (and perhaps handle multiple Danfoss Air units on same LAN segment)
+</p>
  </script>
