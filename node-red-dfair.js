@@ -1,7 +1,11 @@
-module.exports = function (RED) {
+import init_dfair from './dfair_io.js';
+
+export default function (RED) {
   function DFAirNode(config) {
     RED.nodes.createNode(this, config);
     var node = this;
+
+    let dfair = null
 
     // node-specific code goes here
     this.status({ fill: "red", shape: "ring", text: "disconnected" });
@@ -23,7 +27,16 @@ module.exports = function (RED) {
     //   });
 
     this.on("input", function (msg) {
-      this.send(msg);
+      if(msg > 0 ){ //enable
+        
+        dfair = init_dfair("10.10.10.167",5,"A")
+        node.console.warn("Connecting");
+      }
+      else{ //disable
+        node.console.warn("Disconnecting");
+        dfair = null;
+      }
+      
     });
 
     this.on("close", function (removed, done) {
